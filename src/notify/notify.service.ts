@@ -15,9 +15,24 @@ export class NotifyService {
         body: createNotifyDto.contents?.new?.publishValue.title,
         imageUrl: createNotifyDto.contents?.new?.publishValue.thumbnail?.url,
       },
+      android: {
+        priority: 'high',
+        notification: {
+          sound: 'default',
+          defaultVibrateTimings: true,
+          notificationCount: 1,
+          icon: 'https://portfolio.ryotanny.com/favicons/android-chrome-96x96.png',
+        },
+      },
       webpush: {
         fcmOptions: {
           link: `https://portfolio.ryotanny.com`,
+        },
+        notification: {
+          silent: false,
+          badge: '1',
+          vibrate: [400, 100, 400],
+          sound: 'default',
         },
       },
     });
